@@ -1,6 +1,31 @@
 JSON Editor
 ===========
 
+该项目fork来源[Jdorn's great work](https://github.com/jdorn/json-editor)
+###变更如下：
+1. 增加datetime 和 imageurl 两种编辑类型
+2. demo页面改为国内🇨🇳cdn地址，并增加datetime 和 imageurl 的使用示例
+
+### 使用方法：
+1. 该项目依赖jQuery >= 2.0, bootstrap >= 2.3.2 (json-editor默认依赖), moment >= 2.17.1, datetimepicker([地址](https://github.com/smalot/bootstrap-datetimepicker))
+
+2. 初始化
+
+````javascript
+var element = document.getElementById('editor_holder');
+
+var editor = new JSONEditor(element, {
+  theme: 'bootstrap2',
+  iconlib: "fontawesome3",
+  disable_collapse: true,
+  disable_edit_json: true,
+  disable_properties: true,
+  schema: {},
+  startval: null
+});
+````
+
+
 ![JSON Schema -> HTML Editor -> JSON](https://raw.github.com/jdorn/json-editor/master/jsoneditor.png)
 
 JSON Editor takes a JSON Schema and uses it to generate an HTML form.  
