@@ -5,13 +5,18 @@
     <title>JSON Editor Example</title>
 
     <!-- placeholders for the theme switcher -->
-    <link rel='stylesheet' id='theme_stylesheet'>
+    <link rel='stylesheet' href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css">
     <link rel='stylesheet' id='icon_stylesheet'>
-
+    <link href="examples/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <style>[class*="foundicon-"] {font-family: GeneralFoundicons;font-style: normal;}</style>
     <script src='dist/jsoneditor.js'></script>
-
-    <script>
+    <script src="//cdn.bootcss.com/jquery/2.0.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/moment.js/2.17.1/moment.min.js"></script>
+    <script src="//cdn.bootcss.com/moment.js/2.17.1/locale/zh-cn.js"></script>
+    <script src="examples/bootstrap-datetimepicker.min.js"></script>
+    <script src="examples/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript">
     /**
      * LZString compression library
      * Used to create direct links to the demo.
@@ -184,6 +189,16 @@ editor.on("change",  function() {
                     minimum: 18,
                     maximum: 99
                 },
+                birth: {
+                  type:"string",
+                  default:"",
+                  format: "datetime"
+                },
+                image: {
+                  type:"string",
+                  default:"//gw.alicdn.com/tps/TB1BlauNVXXXXXuaXXXXXXXXXXX-512-512.png",
+                  format: "imageurl"
+                },
                 favorite_color: {
                     type: "string",
                     format: "color",
@@ -338,8 +353,8 @@ editor.on("change",  function() {
         var mapping = {
             barebones: '',
             html: '',
-            bootstrap2: '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css',
-            bootstrap3: '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css',
+            bootstrap2: '//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css',
+            bootstrap3: '//cdn.bootcss.com/bootstrap/3.0.3/css/bootstrap.min.css',
             foundation3: '//cdnjs.cloudflare.com/ajax/libs/foundation/3.2.5/stylesheets/foundation.css',
             foundation4: '//cdn.jsdelivr.net/foundation/4.3.2/css/foundation.min.css',
             foundation5: '//cdn.jsdelivr.net/foundation/5.0.2/css/foundation.min.css',
@@ -348,13 +363,13 @@ editor.on("change",  function() {
         };
 
         if(typeof mapping[theme] === 'undefined') {
-            theme = 'bootstrap3';
+            theme = 'bootstrap2';
             document.getElementById('theme_switcher').value = theme;
         }
 
         JSONEditor.defaults.options.theme = theme;
 
-        document.getElementById('theme_stylesheet').href = mapping[theme];
+        // document.getElementById('theme_stylesheet').href = mapping[theme];
         document.getElementById('theme_switcher').value = JSONEditor.defaults.options.theme;
 
         if(!no_reload) reload(true);
@@ -367,8 +382,8 @@ editor.on("change",  function() {
         var mapping = {
             foundation2: '//cdnjs.cloudflare.com/ajax/libs/foundicons/2.0/stylesheets/general_foundicons.css',
             foundation3: '//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css',
-            fontawesome3: '//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.css',
-            fontawesome4: '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'
+            fontawesome3: '//cdn.bootcss.com/font-awesome/3.2.1/css/font-awesome.min.css',
+            fontawesome4: '//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css'
         };
 
         JSONEditor.defaults.options.iconlib = iconlib;
