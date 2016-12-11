@@ -28,6 +28,46 @@ JSONEditor.defaults.themes.bootstrap2 = JSONEditor.AbstractTheme.extend({
     input.style.maxWidth = '98%';
     return input;
   },
+  getImageInput: function() {
+    var el = document.createElement('div');
+    el.style.width = '98%';
+    el.className = 'input-append';
+    var input = this.getFormInputField('text');
+    input.style.width = '90%';
+    el.appendChild(input);
+
+    var previewBtn = document.createElement('a');
+    previewBtn.className = 'btn btn-light J_preview';
+    var icon = document.createElement('i');
+    icon.className = 'icon-eye-open';
+
+    previewBtn.appendChild(icon);
+
+    el.appendChild(previewBtn);
+
+    return el;
+  },
+  getDatetimeInput: function() {
+    var el = document.createElement('div');
+    el.className = 'input-append date form_datetime';
+    el.setAttribute('data-fmt', 'yyyy-MM-dd HH:mm:ss');
+
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.setAttribute('autocomplete', 'off');
+
+    var span = document.createElement('span');
+    span.className = 'add-on';
+
+    var icon = document.createElement('i');
+    icon.className = 'icon-calendar';
+    span.appendChild(icon);
+
+    el.appendChild(input);
+    el.appendChild(span);
+
+    return el;
+  },
   getFormInputField: function(type) {
     var el = this._super(type);
     el.style.width = '98%';
