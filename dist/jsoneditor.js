@@ -6679,7 +6679,6 @@ JSONEditor.defaults.themes.bootstrap2 = JSONEditor.AbstractTheme.extend({
   getDatetimeInput: function() {
     var el = document.createElement('div');
     el.className = 'input-append date form_datetime';
-    el.setAttribute('data-fmt', 'yyyy-MM-dd HH:mm:ss');
 
     var input = document.createElement('input');
     input.type = 'text';
